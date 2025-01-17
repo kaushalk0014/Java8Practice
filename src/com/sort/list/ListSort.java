@@ -31,7 +31,55 @@ public class ListSort {
 		
 		System.out.println("Comparator.naturalOrder() : "+conList);
 		
+		
+		System.out.println("\n --------Sort data using list.sort() comparator compare method -------- ");
+		
+		List<Integer> listValue=getListValue();
+		listValue.sort(new Comparator<Integer>() {
+		
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o1-o2;
+			}
+		});
+		
+		System.out.println("Ascending order sort : "+listValue);
+		
+		List<Integer> listValue2=getListValue();
+		listValue2.sort(new Comparator<Integer>() {
+		
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o2-o1;
+			}
+		});
+		
+		System.out.println("Descending order sort : "+listValue2);
+		
+		System.out.println("\n --------Sort data using Collections.sort compare method -------- ");
+		
+		List<Integer> sortList=getListValue();
+		
+		Collections.sort(sortList, new Comparator<Integer>() {
+
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o1-o2;
+			}
+			
+		});
+		System.out.println("Ascending order sort : "+sortList);
+		
+		sortList.sort(new Comparator<Integer>() {
+			@Override
+			public int compare(Integer o1, Integer o2) {
+				return o2-o1;
+			}
+		});
+		
+		System.out.println("Descending order sort : "+sortList);
 	}
+	
 	
 	
 	private static List<Integer> getListValue(){
