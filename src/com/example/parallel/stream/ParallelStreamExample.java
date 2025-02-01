@@ -1,10 +1,12 @@
 package com.example.parallel.stream;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class ParallelStreamExample {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 	
 		long start=0;
 		long end=0;
@@ -21,6 +23,11 @@ public class ParallelStreamExample {
 		double salaryParallel= list.parallelStream().map(emp->emp.getSalary()).mapToDouble(s->s).average().getAsDouble();
 		end=System.currentTimeMillis();
 		System.out.println("Using Paraller Stream : "+salaryParallel+"   :  "+ (end-start));
+		
+		CompletableFuture<String> completableFuture=new CompletableFuture<String>();
 	
+		completableFuture.get();
+		completableFuture.complete("return some dummy data.....");
 	}
+	
 }
