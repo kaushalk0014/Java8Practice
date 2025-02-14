@@ -10,7 +10,8 @@ import java.util.Set;
 public class CollectionsMethod {
 
 	public static void main(String[] args) {
-
+		// Collections.frequency : TO check occurrence of time in given list
+		// Collections.disJoint : Is used for checking two list having same data or not
 		// Collections.frequency(list, 6);
 		// find occurrence of each element in given list
 		List<Integer> numbers = Arrays.asList(1, 2, 3, 6, 4, 6, 5, 6, 1, 3, 8, 9, 4, 6);

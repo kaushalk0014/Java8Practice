@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamFeatures {
@@ -117,11 +119,46 @@ public class StreamFeatures {
 		System.out.println("Min and Max Value : "+mapMinAndMax);
 		
 		Integer min=Collections.min(minAndMaxList);
-		System.out.println("Min : "+min);
-		Integer max =Collections.max(minAndMaxList);
-		System.out.println("Max : "+ max);
 		
+		System.out.println("\n --------- 6. Stream.concat()------------");
 		
+		// Stream concat is use for merge two list in a single list
+		Stream<Integer> stm1=Stream.of(1, 2, 3, 4, 5);
+		Stream<Integer> stm2=Stream.of(5, 6, 7, 8);
 		
+		Stream<Integer> streamConcat=Stream.concat(stm1, stm2);
+//		System.out.println("Stream Concat : "+ streamConcat);
+//		//streamConcat.forEach(System.out::print);
+//		long sumValue1=streamConcat.mapToInt(Integer::intValue).sum();
+//		System.out.println("Sum : "+sumValue1);
+		
+		int sum=0;
+		Function<Integer, Integer> fun=num->{
+			return sum+num;
+		};
+		 
+		long sumValue2 =streamConcat.mapToInt(num-> fun.apply(num)).sum();
+		System.out.println("Sum2 : "+sumValue2);
+		
+		System.out.println("\n -------------7. Collectors.partitioningBy-------------");
+		
+		List<Integer> listNum=Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+		
+		Map<Boolean, List<Integer>> partioningBy= 
+		listNum.stream()
+		.collect(Collectors.partitioningBy(num-> num%2==0));
+		
+		System.out.println(partioningBy);
+		System.out.println("Even Number : "+partioningBy.get(Boolean.TRUE));
+		System.out.println("Odd Number : "+partioningBy.get(Boolean.FALSE));
+		
+		System.out.println("\n --------------8. InsStream for Ranges-----------");
+		
+		List<Integer> intStram=IntStream.range(1, 10).boxed().collect(Collectors.toList());
+		System.out.println("IntStream : "+ intStram);
+		
+		List<Integer> rangedClosed = IntStream.rangeClosed(1, 10).boxed().collect(Collectors.toList());
+		
+		System.out.println(" Ranged Closed : "+ rangedClosed);
 	}
 }
