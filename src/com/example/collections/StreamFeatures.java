@@ -1,7 +1,9 @@
 package com.example.collections;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -69,7 +71,9 @@ public class StreamFeatures {
 		long roundSalary=GetListEmployee.getList().stream()
 		.mapToDouble(Employee:: getSalary)
 		.boxed()
-		.collect(Collectors.collectingAndThen(Collectors.averagingDouble(Double::doubleValue), Math::round));
+		.collect(Collectors.collectingAndThen(
+				Collectors.averagingDouble(Double::doubleValue), 
+				Math::round));
 		
 		System.out.println("Round avg salary : "+ roundSalary);
 		
@@ -78,9 +82,10 @@ public class StreamFeatures {
 		
 		List<Integer> listNumber=Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
 		System.out.println("List Numbers : "+ listNumber +"\n");
-		List<Integer> num1=listNumber.stream().takeWhile(num-> num < 4).collect(Collectors.toList());
+		List<Integer> num1=listNumber.stream()
+				.takeWhile(num-> num < 4)// It will take after <4
+				.collect(Collectors.toList());
 		System.out.println("Stream Take While : "+ num1);
-		
 		
 		List<Integer> num2=listNumber.stream().dropWhile(num -> num<5).collect(Collectors.toList());
 		
@@ -88,12 +93,34 @@ public class StreamFeatures {
 		
 		System.out.println("\n");
 		
-		List<Integer> num3= listNumber
-				.stream()
-				.takeWhile(num-> num<3)
-				.dropWhile(num -> num<6)
+		List<Integer> listNumber2=Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
+		List<Integer> num3 = listNumber2.stream()
+				.dropWhile(num -> num < 3)	// It will drop number before <3
+				.takeWhile(num -> num < 7)	//
 				.collect(Collectors.toList());
 		System.out.println("Take while and Drop while : "+num3);
+		
+		System.out.println("\n ----------- 5. Collection.teeing ---------------");
+		
+		//find min and max value in given list
+		List<Integer> minAndMaxList=Stream.iterate(1, n->n+1)
+				.limit(10)
+				.collect(Collectors.toList());
+		System.out.println("Min and Max values : "+minAndMaxList);
+		
+		Map<String, Integer> mapMinAndMax=minAndMaxList.stream()
+		.collect(Collectors
+		.teeing(Collectors.minBy(Integer::compareTo),
+				Collectors.maxBy(Integer::compareTo),
+				(n1, n2)->Map.of("Min",n1.get(), "Max", n2.get())));
+		
+		System.out.println("Min and Max Value : "+mapMinAndMax);
+		
+		Integer min=Collections.min(minAndMaxList);
+		System.out.println("Min : "+min);
+		Integer max =Collections.max(minAndMaxList);
+		System.out.println("Max : "+ max);
+		
 		
 		
 	}
