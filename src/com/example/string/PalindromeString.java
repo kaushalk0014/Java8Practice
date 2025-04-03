@@ -19,6 +19,7 @@ public class PalindromeString {
                 right--;
             }
             // Compare characters
+            System.out.println(left+"  -> Left : "+ s.charAt(left)+"   "+right+"    : Right ->: "+s.charAt(right));
             if (Character.toLowerCase(s.charAt(left)) != Character.toLowerCase(s.charAt(right))) {
                 return false;
             }

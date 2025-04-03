@@ -232,6 +232,8 @@ Functional interface with respect of inheritance concept
 
 	//above example is not valid because it having two abstract method	m1() and m2() 	
   	
-  	
+  	const clothes = ['jacket', 't-shirt'];
+clothes.length = 0;
+Console.log(clothes[0])
  
   	

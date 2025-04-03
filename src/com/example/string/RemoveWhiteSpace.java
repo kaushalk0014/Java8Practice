@@ -3,7 +3,7 @@ package com.example.string;
 public class RemoveWhiteSpace {
 
 	public static void main(String[] args) {
-		String str=" M y n a me ka u s h a l";
+		String str=" M y n a me ka u s h a l   ";
 		
 		System.out.println(str.trim());
 		
