@@ -57,5 +57,11 @@ public class ReduceExample {
 		Integer resultMulti2=list.stream().reduce(1, (multi, num )-> num*multi);
 		System.out.println("Multiplication : "+resultMulti2);
 		
+		// find max value using reduce megth
+		
+		Integer	numMax=list.stream().reduce(0, (max, num)-> max>num? max:num);
+		
+		System.out.println("Display Max value "+ numMax);
+		
 	}
 }
