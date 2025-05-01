@@ -1,28 +1,33 @@
 package com.learning.employee.dao;
 
-public class Employee {
+import java.util.List;
 
-	private Integer id;
+public class Employee {
+	private int id;
 	private String name;
 	private String dept;
-	private Integer salary;
+	private List<Project> projects;
+	private double salary;
+	private String gender;
 
 	public Employee() {
 	}
 
-	public Employee(Integer id, String name, String dept, Integer salary) {
+	public Employee(int id, String name, String dept, List<Project> projects, double salary, String gender) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.dept = dept;
+		this.projects = projects;
 		this.salary = salary;
+		this.gender = gender;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -42,17 +47,34 @@ public class Employee {
 		this.dept = dept;
 	}
 
-	public Integer getSalary() {
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+
+	public double getSalary() {
 		return salary;
 	}
 
-	public void setSalary(Integer salary) {
+	public void setSalary(double salary) {
 		this.salary = salary;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + ", projects=" + projects + ", salary="
+				+ salary + ", gender=" + gender + "]";
 	}
 
 }

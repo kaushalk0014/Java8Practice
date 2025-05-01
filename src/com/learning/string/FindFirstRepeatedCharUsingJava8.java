@@ -8,6 +8,8 @@ import java.util.stream.Stream;
 
 public class FindFirstRepeatedCharUsingJava8 {
 
+	//output will be : a
+	
 	public static void main(String[] args) {
 		String str = "I am an Indian".toLowerCase().replace(" ", "");
 
