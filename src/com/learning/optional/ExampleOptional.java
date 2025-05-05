@@ -8,9 +8,19 @@ public class ExampleOptional {
 
 	private static void getCustomerByEmail(String email) {
 		System.out.println("---------getCustomerByEmail--------------");
+		
+//		Customer result=CustomerData.getAllCustomer()
+//				.stream().filter(cus->cus.getEmail().equalsIgnoreCase(email))
+//				.findAny().get();
+		
+//		Customer result=CustomerData.getAllCustomer()
+//		.stream().filter(cus->cus.getEmail().equalsIgnoreCase(email))
+//		.findAny().orElse(new Customer());
+		
+		
 		Customer result=CustomerData.getAllCustomer()
-		.stream().filter(cus->cus.getEmail().equalsIgnoreCase(email))
-		.findAny().orElse(new Customer());
+				.stream().filter(cus->cus.getEmail().equalsIgnoreCase(email))
+				.findAny().orElse(new Customer());
 		
 		System.out.println(result);
 	}
