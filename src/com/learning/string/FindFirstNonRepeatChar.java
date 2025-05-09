@@ -14,7 +14,8 @@ public class FindFirstNonRepeatChar {
 		String str="IloveJavaProgram";
 		
 		String result=Stream.of(str.split(""))
-		.collect(Collectors.groupingBy(n->n.toLowerCase(),LinkedHashMap::new, Collectors.counting()))
+		.collect(Collectors.groupingBy(n->n.toLowerCase(),LinkedHashMap::new,
+				Collectors.counting()))
 		.entrySet().stream()
 		.filter(m->m.getValue()==1)
 		//.filter(m->m.getValue()>1)
