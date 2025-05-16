@@ -10,7 +10,7 @@ public class GroupByExample {
 		List<Employee> list=GetEmployeeList.getEmpList();
 		
 		Map<String, List<Employee>> empByDept = list.stream()
-		.collect(Collectors.groupingBy(Employee::getDept));
+		.collect(Collectors.groupingBy(emp->emp.getDept() ));
 		
 		empByDept.forEach((k,v)->{
 			System.out.println("key : "+k +"   Value : "+ v);
