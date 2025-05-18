@@ -23,7 +23,7 @@ public class FindAnagrams {
 				if (map.get(ch) == 1) {
 					map.remove(ch);
 				} else {
-					map.put(ch, map.get(ch) + 1);
+					map.put(ch, map.get(ch) +1);
 				}
 			} else {
 				return false;
