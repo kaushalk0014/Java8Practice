@@ -16,7 +16,7 @@ public class ListBinarySearch {
 		list.add(55);
 		
 		int point=Collections.binarySearch(list, 66, Collections.reverseOrder());
-		
+		System.out.println(list);
 		System.out.println("Result : "+point);
 	}
 }
