@@ -16,13 +16,13 @@ public class FindNthHighestSalary {
 			System.out.println(e);
 		});
 
-		;
-		System.out.println(findNthHighestSalary(1, list));
+		System.out.println("Find nth highest salary");
+		System.out.println(findNthHighestSalary(3, list));
 
 	}
 
 	private static Employee findNthHighestSalary(int nth, List<Employee> list) {
-		return list.stream().sorted((e1, e2) -> e2.getSalary().compareTo(e1.getSalary())).skip(1 - 1).findFirst()
+		return list.stream().sorted((e1, e2) -> e2.getSalary().compareTo(e1.getSalary())).skip(nth - 1).findFirst()
 				.orElse(new Employee());
 
 	}
