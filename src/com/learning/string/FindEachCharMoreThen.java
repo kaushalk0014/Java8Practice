@@ -1,5 +1,6 @@
 package com.learning.string;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -25,7 +26,7 @@ public class FindEachCharMoreThen {
 		
 		System.out.println("-------------------------------");
 		
-		List<String> list=Stream.of(str.split("")).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+		List<String> list=Stream.of(str.split("")).collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()))
 		.entrySet().stream().filter(m->m.getValue()>1)
 		.map(Map.Entry::getKey)
 		.collect(Collectors.toList());

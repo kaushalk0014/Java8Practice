@@ -9,6 +9,7 @@ public class FindAnagrams {
 
 		System.out.println(findAnagram("listen", "silent")); // true
 		System.out.println(findAnagram("hello", "world")); // false
+		System.out.println(findAnagram("hello", "heoll")); // true
 	}
 
 	private static boolean findAnagram(String str1, String str2) {
@@ -23,7 +24,7 @@ public class FindAnagrams {
 				if (map.get(ch) == 1) {
 					map.remove(ch);
 				} else {
-					map.put(ch, map.get(ch) +1);
+					map.put(ch, map.get(ch) -1);
 				}
 			} else {
 				return false;
