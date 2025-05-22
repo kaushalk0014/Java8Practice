@@ -4,6 +4,7 @@ public class CountString {
 
 	public static void main(String[] args) {
 		 String str = "AAAaccbeGGGHH";
+		 //output: A4C2BEG3H2
 		 StringBuilder result=new StringBuilder();
 		 
 		 str=str.toUpperCase();
