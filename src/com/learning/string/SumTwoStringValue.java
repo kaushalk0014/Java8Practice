@@ -20,7 +20,7 @@ public class SumTwoStringValue {
 			curryDigit= sum /10;
 			buffer.append(sum%10);
 			i--;
-			j--;
+			j--; 
 		}
 		return buffer.reverse().toString();
 	}
