@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ReverseWords {
+public class ReverseSentence {
 
 	public static void main(String[] args) {
 		String input = "Java is awesome";
