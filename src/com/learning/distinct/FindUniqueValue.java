@@ -6,7 +6,8 @@ import java.util.stream.Stream;
 public class FindUniqueValue {
 
 	public static void main(String[] args) {
-		String str="125577"; //1257
+		String str="125577"; 
+		//output : 1257
 		
 		String result = Stream.of(str.split("")).distinct().collect(Collectors.joining(""));
 		
