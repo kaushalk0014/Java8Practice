@@ -3,6 +3,7 @@ package com.learning.list.map;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class SortMapByDeptName {
@@ -16,7 +17,7 @@ public class SortMapByDeptName {
 		empDetails.put("Dev", new Employee(103, "Pankaj"));
 		empDetails.put("DevOps", new Employee(108, "Akash"));
 
-		Map<String, Employee> result =
+		Map<String, Employee> resultAscOrder =
 				empDetails.entrySet()
 		.stream()
 		.sorted(Map.Entry.comparingByValue((o1, o2) ->o1.getName().compareTo( o2.getName())))
@@ -24,8 +25,16 @@ public class SortMapByDeptName {
 				LinkedHashMap::new));
 		
 		
-		System.out.println("Result : "+ result);
+		System.out.println("Result : "+ resultAscOrder);
 		
+		
+		System.out.println("----  Desc order sorting ---");
+		Map<String, Employee> resultDescOrder =
+		empDetails.entrySet().stream()
+		.sorted((e1, e2)-> e2.getValue().getName().compareTo(e1.getValue().getName()))
+		.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry :: getValue, (o1, o2) -> o1, LinkedHashMap::new));
+	
+		System.out.println(resultDescOrder);
 	}
 
 }
