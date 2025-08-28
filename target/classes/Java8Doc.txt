@@ -1,0 +1,239 @@
+
+
+Function interface get one input and one out value. It having one accept method
+
+Function<Input Type, Return Type> fun= num-> num* num;
+	
+	Example:
+		Function<Integer, String>
+
+Predicate interface having return type boolean but input data type any
+
+	Example:
+ 		Predicate<Input Type> pre=num> num%2==0?true: false;
+ 
+ 		Predicate<Integer>
+ 		
+1. Lambda Expressions
+-------------------------------
+1930
+
+LIPS first programming language which use first time lambda expression
+
+The main objective of Lambda Expression:
+	To bring benefits of functional programming into java
+
+What is Lambda Expression:
+----------------------------------------
+It is an anonymous function, 
+		Nameless
+		Without return typeS
+		Without modifiers
+	
+  Example: 1
+	
+	Step : 1	
+		public void printValue(){
+			System.out.println("Welcome");
+		}
+	Step 2:
+		()->{System.out.println("Welcome");}
+	
+	//If body contain only one line then curly bracket not need.
+	
+	Step 2:
+		()->System.out.println("Welcome");
+		
+	//Curly bracket is optional, If multiple line there then we need to use Curly bracket.
+	
+	
+ Example: 2
+ 	
+ 	public void printValue(int a, int b){
+ 		System.out.println(a+b);
+ 	}
+ 
+    //Solution Lambda Expression:
+  	
+  	(int a, int b)->System.out.println(a+b);
+  			or
+  	(a, b)-> System.out.println(a+b)
+  	
+  	//We can remove data type also from method params
+  	
+ Example: 3
+ 	public int squareInt(int n){
+ 		return n*n;
+ 	}
+ 	
+ 	//Solution Lambda Expression:
+ 	 
+ 	 
+ 	 (int n)->{return n*n;}
+ 	 	//or
+	// If we remove Curly bracket the be must remove return type;
+ 	 
+ 	 (int n)->n*n;
+ 	   //or
+ 	  (n) -> n*n;
+ 	     //or
+ 	  n->n*n;
+ 	 
+  Example: 
+    
+	  public int findLength(String s){
+	  	return s.length();
+	  }
+	  
+	  //Solution Lambda Expression:
+	  s -> s.length();
+	  
+----------------------------------------------------
+FI=> Function Interface
+
+Runnable  ====> run()
+Comparable ===> compareTo()
+Callble =====> call()
+
+An Interface contain only one abstract method that called functional interface 
+
+	public void m1(){
+		Syatem.out.println("Lambda");	
+	}
+	
+	=> Equivalent of lambda expression 
+ 	()->{
+ 		Syatem.out.println("Lambda");
+ 	}
+ 	
+ 	//or
+ 	
+  	()-> Syatem.out.println("Lambda");
+  	
+-------------------------------------------------------------
+ Example:
+ 	
+ 	public void add(int a, int b){
+ 		Syatem.out.println(a+b);
+ 	}
+ 
+ 	=> Equivalent of lambda expression
+ 		(a,b)->Syatem.out.println(a+b);
+--------------------------------------------------------------
+ Example:
+
+	public int squareInt(int n){
+ 		return n*n;
+ 	}
+	
+	=> Equivalent of lambda expression	
+	n->n*n;
+
+====================================
+	Test case:-
+		n -> return n*n;		: Invalid
+		n -> {return n*n;}		: Valid
+		n -> {return n*n};		: Invalid (semicolon missing)
+		n -> {n*n;};			: Invalid
+		n -> n *n;				: valid
+		
+	Without curly braces we can not use return keyboard. Compiler will consider returned value automatically.
+	Within curly braces if we want to return some value compulsory we should use return statement.  
+	
+-------------------------------------------------------------------
+Once we write Lambda Expressions
+Functional Interface
+
+Which contain single abstract method (SAM)
+
+Runnable ===> run()
+Callable ===>cal()
+Comparable =>compareTo()  
+
+	Such type interface called functional interface
+
+default methods and static method
+
+
+interface Interf{
+	public void m1();
+	default void m2(){
+		
+	}
+	
+	public static void m3(){
+		
+	}
+}
+
+
+Above Interface acceptable because having only one abstract method
+
+@Functional is a optional annotation 
+
+-------------------------------------------------------
+
+@FunctionalInterface
+interface Interf{
+	
+	default void m2(){
+		
+	}
+	
+	public static void m3(){
+		
+	}
+}
+
+Above Interface not having any abstract method then compilable will throw exception 
+	Error: 
+		"Invalid '@FunctionalInterface' annotation; Interf is not a functional interface"
+		
+====================================================================================================
+Functional interface with respect of inheritance concept
+
+	@FunctionalInterface
+	interface A{
+		public void m1();
+	}
+	
+	@FunctionalInterface
+	interface B extends A{
+		
+	}
+
+	//above example is valid because it having only one abstract method
+----------------------------------------------------------------------------------------------------
+
+	@FunctionalInterface
+	interface A{
+		public void m1();
+	}
+	
+	@FunctionalInterface
+	interface B extends A{
+		public void m1();
+	}
+
+	//above example is valid because it having only one abstract method (because method name is same m1()
+
+---------------------------------------------------------------------------------------------------------
+
+	@FunctionalInterface
+	interface A{
+		public void m1();
+	}
+	
+	@FunctionalInterface
+	interface B extends A{
+		public void m2();
+	}
+		
+
+	//above example is not valid because it having two abstract method	m1() and m2() 	
+  	
+  	const clothes = ['jacket', 't-shirt'];
+clothes.length = 0;
+Console.log(clothes[0])
+ 
+  	
