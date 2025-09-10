@@ -23,3 +23,4 @@ public class StringsAnagrams {
 		return Arrays.equals(char1, char2);
 	}
 }
+  
