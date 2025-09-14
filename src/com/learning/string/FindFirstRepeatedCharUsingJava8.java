@@ -26,7 +26,8 @@ public class FindFirstRepeatedCharUsingJava8 {
 	private static void findDirstRepeatedChar(String str) {
 		Set<Character> set = new HashSet<Character>();
 
-		Optional<Character> result = str.toLowerCase().chars().filter(s -> s != ' ').mapToObj(ch -> (char) ch)
+		Optional<Character> result = str.toLowerCase().chars().filter(s -> s != ' ')
+				.mapToObj(ch -> (char) ch)
 				.filter(m -> !set.add(m)).findFirst();
 
 		if (result.isPresent()) {
