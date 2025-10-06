@@ -1,4 +1,4 @@
-package com.revision.list.to.map;
+package com.revision.listto.map;
 
 public class CountMaxFrequence {
 

@@ -1,4 +1,4 @@
-package com.revision.list.to.map;
+package com.revision.listto.map;
 
 import java.util.List;
 import java.util.function.Function;
