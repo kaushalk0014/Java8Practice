@@ -20,7 +20,8 @@ public class MergeTwoData {
 											new Address(1004, 104, "774411", "HYD")
 											); 
 		
-		Map<Integer, Address> mapAddress= listAddress.stream().collect(Collectors.toMap(Address::getEmpId, Function.identity()));
+		Map<Integer, Address> mapAddress= listAddress.stream()
+				.collect(Collectors.toMap(Address::getEmpId, Function.identity()));
 		
 		List<Employee> result = listEmployee.stream().map(emp->{
 			Address address = mapAddress.get(emp.getId());

@@ -22,7 +22,7 @@ public class FilterData {
 		
 		System.out.println(result1);
 		
-		System.out.println(100*1.50);
+		System.out.println(100*1.10);
 		
 	}
 }

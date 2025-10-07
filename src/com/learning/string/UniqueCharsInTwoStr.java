@@ -1,8 +1,12 @@
 package com.learning.string;
 
+import java.awt.geom.QuadCurve2D;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -29,7 +33,34 @@ public class UniqueCharsInTwoStr {
 		result.addAll(unque1);
 		result.addAll(unque2);
 		
-		System.out.println(result);
+		System.out.println(result);//[b, e, l, n, p]
 		
+		System.out.println("------------using stream------------------");
+		
+		String combinedStr = str1 + str2;
+		
+		Map<Character, Long> freqMap = combinedStr.chars()
+			    .mapToObj(c -> (char) c)
+			    .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+
+		List<Character> result2 = freqMap.entrySet().stream()
+			    .filter(e -> e.getValue() == 1)
+			    .map(Map.Entry::getKey)
+			    .collect(Collectors.toList());
+
+		System.out.println(result2); //[b, e, l]
+		
+		System.out.println("------------using stream----222--------------");
+		
+		Map<String , Long> map =
+				Stream.of(combinedStr.toLowerCase().split(""))
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		
+		List<String> uniqueKey = 
+		map.entrySet().stream().filter(m-> m.getValue()==1)
+		.map(Map.Entry::getKey).collect(Collectors.toList());
+		
+		System.out.println(uniqueKey);//[b, e, l]
 	}
 }
